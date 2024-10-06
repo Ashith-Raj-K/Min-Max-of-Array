@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="array">Enter the numbers with ',' </label>
+    <input type="text" id="enteredValue" placeholder="eg: 1,2,3,4,5 ">
+    <button onclick=maxMin()>Get MIn/Max</button>
+    <p id="MaxVal"></p>
+    <p id="MinVal"></p>
+
+    <script>
+        function maxMin(){
+            let input = document.getElementById('enteredValue').value ;
+            let array = input.split(',').map(item=>item.trim()) //split operator seperates the text by matching coma and trim to avoid white sapce using map
+            // console.log(typeof array)
+            array.sort(function(a,b){return a-b});
+            // console.log(array[0])
+            // console.log(array[array.length-1])
+            document.getElementById('MinVal').innerHTML = "The lowest value of array "+ array[0]
+            document.getElementById('MaxVal').innerHTML = "The Highest value of array "+ array[array.length-1]
+        }
+    </script>
+</body>
+</html>
